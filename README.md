@@ -28,9 +28,11 @@ cd MEW-Jet-Tracking-ML-Model
 ### 3) Create and activate environment
 
 ```powershell
-py -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
+
+If `py -3.11` fails, install Python 3.11 first, then rerun the command.
 
 If PowerShell blocks activation:
 
@@ -107,6 +109,27 @@ Ensure the virtual environment is active and dependencies are installed:
 ```powershell
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
+
+### NumPy build/compiler error on Windows
+
+If you see an error like `Unknown compiler(s)` while installing `numpy`, your environment is likely using an unsupported Python version (for example Python 3.14), which forces a source build.
+
+Fix:
+
+```powershell
+deactivate
+Remove-Item -Recurse -Force .venv
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Then verify:
+
+```powershell
+python -c "import cv2, numpy, pandas, torch, onnxruntime, PIL, skimage; print('imports ok')"
 ```
 
 ### App opens but processing fails

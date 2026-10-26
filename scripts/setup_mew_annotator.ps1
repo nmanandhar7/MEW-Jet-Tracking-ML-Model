@@ -1,20 +1,28 @@
 param(
-    [string]$Python = "py"
+    [string]$PythonVersion = "3.11"
 )
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "Creating virtual environment..."
-& $Python -m venv .venv
+Write-Host "Creating virtual environment with Python $PythonVersion..."
+& py "-$PythonVersion" -m venv .venv
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host ""
+    Write-Host "Failed to create .venv with Python $PythonVersion."
+    Write-Host "Install Python $PythonVersion and retry, or pass a different version:"
+    Write-Host "powershell -ExecutionPolicy Bypass -File scripts/setup_mew_annotator.ps1 -PythonVersion 3.10"
+    exit 1
+}
 
 Write-Host "Activating environment..."
 & .\.venv\Scripts\Activate.ps1
 
 Write-Host "Upgrading pip..."
-python -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
 
 Write-Host "Installing project dependencies..."
-python -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 
 Write-Host ""
 Write-Host "Setup complete."
