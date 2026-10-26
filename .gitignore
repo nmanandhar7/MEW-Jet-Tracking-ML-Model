@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Logs / temporary output
+*.log
+*.tmp
+
+# GitHub release cleanup: heavy artifacts are intentionally not versioned
+# Keep the directory placeholders, but ignore generated data and model binaries.
+checkpoints/*
+!checkpoints/.gitkeep
+
+inference/*
+!inference/.gitkeep
+
+# Data directories are usually large and may be kept outside GitHub.
+data/**
+!data/.gitkeep
+!data/README.md
+
+# Video / large media files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.m4v
+
+# Model binaries and training artifacts
+*.onnx
+*.pth
+*.pt
+*.bin
+*.zip
+*.tar
+*.tar.gz
+
+# Common generated outputs
+outputs/
+artifacts/
+results/
+*.pkl
+*.png
+*.csv
+
+# PyTorch local caches
+*.ckpt
+*.ckpt.*

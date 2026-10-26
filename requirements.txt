@@ -1,0 +1,19 @@
+# Core scientific stack
+numpy>=1.26,<2.0
+opencv-python>=4.9,<5.0
+opencv-contrib-python>=4.9,<5.0
+scikit-image>=0.22,<1.0
+scipy>=1.12,<2.0
+matplotlib>=3.8,<4.0
+pillow>=10.0,<12.0
+
+# ML / inference
+torch>=2.2,<3.0
+torchvision>=0.17,<1.0
+onnxruntime>=1.18,<2.0
+
+# Utilities
+pandas>=2.0,<3.0
+
+# Optional but useful for development
+pytest>=8.0,<9.0
