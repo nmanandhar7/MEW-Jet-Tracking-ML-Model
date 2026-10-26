@@ -15,17 +15,35 @@ Use this section if you only want to run the annotator app.
 ### 1) Prerequisites
 
 - Windows 10 or 11
-- Python 3.10 or 3.11 installed
+- Python 3.11 installed
 - Git installed
 
-### 2) Clone the repository
+### 2) Install Python 3.11 (if not already installed)
+
+Install Python 3.11 from one of these options:
+- Python.org installer: https://www.python.org/downloads/release/python-3119/
+- Windows package manager:
+
+```powershell
+winget install -e --id Python.Python.3.11
+```
+
+Verify the Python launcher can see 3.11:
+
+```powershell
+py -0p
+```
+
+The output should include a Python 3.11 entry.
+
+### 3) Clone the repository
 
 ```powershell
 git clone https://github.com/nmanandhar7/MEW-Jet-Tracking-ML-Model.git
 cd MEW-Jet-Tracking-ML-Model
 ```
 
-### 3) Create and activate environment
+### 4) Create and activate environment
 
 ```powershell
 py -3.11 -m venv .venv
@@ -41,14 +59,14 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 4) Install dependencies
+### 5) Install dependencies
 
 ```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 5) Run the annotator app
+### 6) Run the annotator app
 
 ```powershell
 python "Pre-Workshop ML Models\jet_annotator_app.py"
